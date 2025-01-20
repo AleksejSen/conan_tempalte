@@ -2,7 +2,7 @@
 
 A template repo to quickly start cpp projects using [conan package manager](https://conan.io) and CMake.
 
-_Inspired by [ForgottenUmbrella's gist](https://gist.github.com/ForgottenUmbrella/0f32f6446b2948a3a5a99687b264910d)_
+_ Originally Inspired by [ForgottenUmbrella's gist](https://gist.github.com/ForgottenUmbrella/0f32f6446b2948a3a5a99687b264910d)_
 
 ## Configure
 
@@ -10,6 +10,12 @@ _Inspired by [ForgottenUmbrella's gist](https://gist.github.com/ForgottenUmbrell
 2. Update dependencies in `conanfile.txt`.
 
 ## Setup
+
+Prime conan
+
+```sh
+conan profile detect
+```
 
 Run
 
@@ -20,9 +26,8 @@ Run
 or
 
 ```sh
-mkdir build && cd build
-conan install ..
-cmake .. -DCMAKE_EXPORT_COMPILE_COMMANDS=1 # generates compile_commands.json
+conan install . --output-folder=build --build=missing
+cmake . -DCMAKE_EXPORT_COMPILE_COMMANDS=1 # generates compile_commands.json
 
 ln -s compile_commands.json ../compile_commands.json # link compile_commands.json to home dir
 ```
