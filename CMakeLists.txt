@@ -15,10 +15,12 @@ file(GLOB SOURCES
 	src/*.cpp
 )
 
+find_package(fmt REQUIRED)
+find_package(CLI11 REQUIRED)
+
+
 # $source_files is a space-delimited list of filenames.
 add_executable(${PROJECT_NAME} ${SOURCES})  # Specifies the executable to build.
 
-# Link all Conan dependencies automatically
-foreach(TARGET ${CONAN_LIBS})
-    target_link_libraries(my_project PRIVATE ${TARGET})
-endforeach()
+target_link_libraries(${PROJECT_NAME} fmt::fmt)
+target_link_libraries(${PROJECT_NAME} CLI11::CLI11)
