@@ -25,6 +25,4 @@ find_package(CLI11 REQUIRED)
 # $source_files is a space-delimited list of filenames.
 add_executable(${PROJECT_NAME} ${SOURCES})  # Specifies the executable to build.
 
-target_link_libraries(${PROJECT_NAME} fmt::fmt)
-target_link_libraries(${PROJECT_NAME} CLI11::CLI11)
-
+target_link_libraries(${PROJECT_NAME} fmt::fmt CLI11::CLI11)
